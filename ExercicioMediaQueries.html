@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <title>Exercicio Media Queries</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .wrapper div {
+                min-height: 350px;
+            }
+
+            .box1 {
+                outline: 1px solid red;
+            }
+
+            .box2 {
+                outline: 1px solid red;
+            }
+            
+            @media (min-width: 700px) {
+                .wrapper {
+                    max-width: 1000px;
+                    margin: 0 auto;
+                    display: flex;
+                }
+
+                .box1 {
+                    min-width: 60%;
+                }
+
+                .box2 {
+                    min-width: 40%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="box1">Coluna 1</div>
+            <div class="box2">Coluna 2</div>
+        </div>
+    </body>
+</html>
