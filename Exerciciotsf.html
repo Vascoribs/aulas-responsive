@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="utf-8">
+		<title>Exercício: Header Responsivo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+		<style>
+			body {
+				font-family: Inter, sans-serif;
+			}
+
+			header {
+				background-color: #002e44;
+			}
+
+			header .container {
+				max-width: 1200px;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				padding: 14px 4px;
+			}
+			
+			header .btn-liveradio {
+				padding: 8px;
+				border-radius: 8px;
+				background-color: #fbe686;
+				color: #002e44;
+				text-transform: uppercase;
+				font-size: 0.7rem;
+				font-weight: bold;
+			}
+
+			header .btn-liveradio a {
+				color: #002e44;
+				text-decoration: none;
+			}
+
+			header .logo {}
+
+			header .nav-buttons {}
+
+			header .nav-buttons button {
+				background-color: transparent;
+				border: none;
+				cursor: pointer;
+				color: #8f8f8f;
+				font-weight: bold;
+				margin-left: 8px;
+			}
+
+			header .nav-buttons button:last-child {
+				background-color: #e7e9f7;
+				color: #1e1e1e;
+				border-radius: 6px;
+				padding: 6px;
+			}
+
+			header .bottom {
+				border-top: 4px solid #335869;
+				padding: 4px 0 6px 0;
+			}
+
+			header .bottom nav {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+			header .bottom nav ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			header .bottom nav ul li {
+				display: inline;
+			}
+
+			header .bottom nav ul li a {
+				color: #FFF;
+				font-size: 0.75rem;
+				text-decoration: none;
+			}
+
+            /* formatação comum em smartphone e tablet*/
+            @media (max-width: 800px) {
+
+                header .bottom nav ul {
+                    text-align: center;
+                }
+
+                header .bottom nav ul li:first-child,
+                header .bottom nav ul li:nth-child(2) 
+                {
+                    display: none;
+                }
+
+                header .bottom nav ul li {
+                    text-transform: uppercase;
+                    font-weight: 600; /* semi-bold */
+                    margin: 0 7px;
+                }
+            }
+
+			/* especifico desktop */
+			@media (min-width: 801px) {
+
+				header .bottom nav ul li {
+					text-transform: lowercase;
+					margin-left: 5px;
+				}
+
+				header .bottom nav ul .highlight a {
+                    font-size: 0.85rem;
+					font-weight: bold;
+					text-transform: none;
+				}
+
+				header .bottom nav ul .right {
+					float: right;
+					margin-left: 0;
+                    margin-right: 8px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="btn-liveradio">
+					<a href="https://www.tsf.pt/emdireto/">Ouvir em Directo</a>
+				</div>
+				<div class="logo">
+					<a href="https://www.tsf.pt/">
+						<img src="https://www.tsf.pt/img/logos/logo-tsf-branco.svg" alt="TSF Notícias">
+					</a>
+				</div>
+				<div class="nav-buttons">
+					<button type="button">P</button>
+					<button type="button">U</button>
+					<button type="button">D</button>
+					<button type="button">Menu</button>
+				</div>
+			</div>
+			<div class="bottom">
+				<nav>
+					<ul>
+						<li class="highlight"><a href="">Hoje Interessa</a></li>
+						<li><a href="">Reportagem TSF</a></li>
+						<li><a href="">Política</a></li>
+						<li><a href="">Desporto</a></li>
+						<li><a href="">Mundo</a></li>
+						<li class="right"><a href="">Podcasts</a></li>
+						<li class="right"><a href="">Últimas</a></li>
+					</ul>
+				</nav>			
+			</div>
+		</header>
+	</body>
+</html>
