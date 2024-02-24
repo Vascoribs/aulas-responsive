@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="utf-8">
+		<title>Exercício: TSF com Grid</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&display=swap" rel="stylesheet">
+		<style>
+			body {
+				font-family: "Inter", sans-serif;
+			}
+
+			h1, h2, h3 {
+				font-family: "Frank Ruhl Libre", serif;
+			}
+
+			figure {
+				margin: 0;
+			} 
+
+			a {
+				text-decoration: none;
+			}
+
+			header {
+				background-color: #002e44;
+			}
+
+			header .container {
+				max-width: 1200px;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				padding: 14px 4px;
+			}
+			
+			header .btn-liveradio {
+				padding: 8px;
+				border-radius: 8px;
+				background-color: #fbe686;
+				color: #002e44;
+				text-transform: uppercase;
+				font-size: 0.7rem;
+				font-weight: bold;
+			}
+
+			header .btn-liveradio a {
+				color: #002e44;
+				text-decoration: none;
+			}
+
+			header .logo {}
+
+			header .nav-buttons {}
+
+			header .nav-buttons button {
+				background-color: transparent;
+				border: none;
+				cursor: pointer;
+				color: #8f8f8f;
+				font-weight: bold;
+				margin-left: 8px;
+			}
+
+			header .nav-buttons .btn-menu {
+				background-color: #e7e9f7;
+				color: #1e1e1e;
+				border-radius: 6px;
+				padding: 6px;
+			}
+
+			header .bottom {
+				border-top: 4px solid #335869;
+				padding-top: 4px;
+			}
+
+			header .bottom nav {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+			header .bottom nav ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0 0 6px 0;
+				white-space: nowrap;
+				overflow: auto;
+			}
+
+			header .bottom nav ul li {
+				display: inline;
+			}
+
+			header .bottom nav ul li a {
+				color: #FFF;
+				font-size: 0.75rem;
+				text-decoration: none;
+			}
+
+			.btn-liveradio-small { display: none; }
+
+			main {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+			#recent h2 {
+				border-bottom:  1px solid #CCC
+			}
+
+			#recent h3 a {
+				color: #1e1e1e;
+			}
+
+			#recent .latest,
+			#recent .other-news {
+				display: grid;
+			}
+
+			#recent .latest {
+				grid-template-columns: 1fr 1fr;
+				grid-column-gap: 20px;
+				grid-row-gap: 10px;
+			}
+
+			#recent .latest img {
+				width: 100%;
+			}
+
+			#recent .other-news {
+				margin-top: 20px;
+				grid-gap: 15px;
+			}
+
+			#recent .other-news article {
+				display: grid;
+				grid-template-columns: 1fr 1.2fr;
+				border-top: 1px solid #CCC;
+				padding-top: 12px;
+			}
+
+			#recent .other-news h3 {
+				font-size: 1.1rem;
+				margin: 0 0 0 9px;
+				padding: 0;
+			}
+
+			#recent .other-news img {
+				max-width: 100%;
+			}
+
+			/* para smartphone */
+			@media (max-width: 480px) {
+
+				header .container {
+					justify-content: space-between;
+					padding-left: 15px;
+					padding-right: 15px;
+				}
+
+				header .nav-buttons {
+					display: flex;
+					align-items: center;
+				}
+
+				header .nav-buttons .btn-menu {
+					padding: 5px 6px;
+				}
+
+				.btn-menu span { display: none; }
+				
+				.btn-liveradio-large { display: none; }
+
+				.btn-liveradio-small { display: inline; }
+
+				#recent .latest {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			/* formatação comum em smartphone e tablet */
+			@media (max-width: 800px) {
+
+				header .bottom nav ul {
+					text-align: center;
+				}
+
+				header .bottom nav ul li:first-child,
+				header .bottom nav ul li:nth-child(2)
+				{
+					display: none;
+				}
+
+				header .bottom nav ul li {
+					text-transform: uppercase;
+					font-weight: 600; /* semi-bold */
+					margin: 0 7px;
+				}
+
+			}
+
+				/* especifico tablet */
+			@media (min-width: 480px) and (max-width: 800px) {
+
+				#recent .other-news {
+					grid-template-columns: 1fr 1fr;
+				}
+			}
+
+			/* especifico desktop */
+			@media (min-width: 801px) {
+
+				header .bottom nav ul li {
+					text-transform: lowercase;
+					margin-left: 5px;
+				}
+
+				header .bottom nav ul .highlight a {
+					font-size: 0.85rem;
+					font-weight: bold;
+					text-transform: none;
+				}
+
+				header .bottom nav ul .right {
+					float: right;
+					margin-left: 0;
+					margin-right: 8px;
+				}
+
+				#recent .other-news {
+				grid-template-columns: 1fr 1fr 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="btn-liveradio btn-liveradio-large">
+					<a href="https://www.tsf.pt/emdireto/">Ouvir em Directo</a>
+				</div>
+				<div class="logo">
+					<a href="https://www.tsf.pt/">
+						<img src="https://www.tsf.pt/img/logos/logo-tsf-branco.svg" alt="TSF Notícias">
+					</a>
+				</div>
+				<div class="nav-buttons">
+					<button type="button">P</button>
+					<button type="button">U</button>
+					<button type="button">D</button>
+					<a class="btn-liveradio btn-liveradio-small" href="https://www.tsf.pt/emdireto/">O</a>
+					<button type="button" class="btn-menu">
+						<svg viewBox="0 0 100 80" width="16" height="10">
+						  <rect width="100" height="20"></rect>
+						  <rect y="30" width="100" height="20"></rect>
+						  <rect y="60" width="100" height="20"></rect>
+						</svg>
+						<span>Menu</span>
+					</button>
+				</div>
+			</div>
+			<div class="bottom">
+				<nav>
+					<ul>
+						<li class="highlight"><a href="">Hoje Interessa</a></li>
+						<li><a href="">Reportagem TSF</a></li>
+						<li><a href="">Política</a></li>
+						<li><a href="">Desporto</a></li>
+						<li><a href="">Mundo</a></li>
+						<li class="right"><a href="">Podcasts</a></li>
+						<li class="right"><a href="">Últimas</a></li>
+					</ul>
+				</nav>			
+			</div>
+		</header>
+		<main>
+			<h1>TSF</h1>
+			<!--
+				implementar a secção "Atual" do site, possibilitar duas colunas de destaque (tablet e desktop),
+				e nas outras notícias criar 3 colunas em desktop, 2 colunas em tablet, 1 coluna em smartphone 
+			-->
+			<section id="recent">
+				<h2>Atual</h2>
+				<div class="latest">
+					<article>
+						<figure>
+							<a href="https://www.tsf.pt/3160809749/marcelo-sublinha-apoio-portugues-a-ucrania-sem-reservas-e-pelo-tempo-que-for-preciso/">
+								<img src="https://asset.skoiy.com/tsfiqogiwkcugyug/ol73jkrr23xq.jpg?w=920&q=90&crop=1920,1080,0,200" alt="">
+							</a>
+						</figure>
+						<h3>
+							<a href="https://www.tsf.pt/3160809749/marcelo-sublinha-apoio-portugues-a-ucrania-sem-reservas-e-pelo-tempo-que-for-preciso/">Marcelo sublinha apoio português à Ucrânia sem reservas e "pelo tempo que for preciso"</a>
+						</h3>
+						<div class="category">
+							<a href="https://www.tsf.pt/3160809749/marcelo-sublinha-apoio-portugues-a-ucrania-sem-reservas-e-pelo-tempo-que-for-preciso/">Europa</a>
+						</div>
+					</article>
+					<article>
+						<figure>
+							<a href="https://www.tsf.pt/3753412656/bloco-de-esquerda-sugere-limitacao-de-telemoveis-nas-escolas/">
+								<img src="https://asset.skoiy.com/tsfiqogiwkcugyug/t8whbgppxoyc.jpg?w=480&q=90&crop=1920,1080,0,0" alt="">
+							</a>
+						</figure>
+						<h3>
+							<a href="https://www.tsf.pt/3753412656/bloco-de-esquerda-sugere-limitacao-de-telemoveis-nas-escolas/">Bloco de Esquerda sugere limitação de telemóveis nas escolas</a>
+						</h3>
+						<div class="category">
+							<a href="https://www.tsf.pt/3753412656/bloco-de-esquerda-sugere-limitacao-de-telemoveis-nas-escolas/">Política</a>
+						</div>
+					</article>
+				</div>
+				<div class="other-news">
+					<article>
+						<figure>
+							<a href="https://www.tsf.pt/547929966/protesto-pelo-clima-interrompeu-debate-dois-a-cinco-ativistas-atiraram-tinta-e-gritaram-palavras-de-ordem/">
+								<img src="https://asset.skoiy.com/tsfiqogiwkcugyug/flimyeqyuyzz.jpg?w=150&q=90&crop=5311,2987,0,277" alt="">
+							</a>
+						</figure>
+						<h3>
+							<a href="https://www.tsf.pt/547929966/protesto-pelo-clima-interrompeu-debate-dois-a-cinco-ativistas-atiraram-tinta-e-gritaram-palavras-de-ordem/">Protesto pelo clima interroumpeu debate. Dois a cinco ativistas atiraram tinta e gritaram palavras de ordem</a>
+						</h3>
+					</article>
+					<article>
+						<figure>
+							<a href="https://www.tsf.pt/547929966/protesto-pelo-clima-interrompeu-debate-dois-a-cinco-ativistas-atiraram-tinta-e-gritaram-palavras-de-ordem/">
+								<img src="https://asset.skoiy.com/tsfiqogiwkcugyug/flimyeqyuyzz.jpg?w=150&q=90&crop=5311,2987,0,277" alt="">
+							</a>
+						</figure>
+						<h3>
+							<a href="https://www.tsf.pt/547929966/protesto-pelo-clima-interrompeu-debate-dois-a-cinco-ativistas-atiraram-tinta-e-gritaram-palavras-de-ordem/">Protesto pelo clima interroumpeu debate. Dois a cinco ativistas atiraram tinta e gritaram palavras de ordem</a>
+						</h3>
+					</article>
+					<article>
+						<figure>
+							<a href="https://www.tsf.pt/547929966/protesto-pelo-clima-interrompeu-debate-dois-a-cinco-ativistas-atiraram-tinta-e-gritaram-palavras-de-ordem/">
+								<img src="https://asset.skoiy.com/tsfiqogiwkcugyug/flimyeqyuyzz.jpg?w=150&q=90&crop=5311,2987,0,277" alt="">
+							</a>
+						</figure>
+						<h3>
+							<a href="https://www.tsf.pt/547929966/protesto-pelo-clima-interrompeu-debate-dois-a-cinco-ativistas-atiraram-tinta-e-gritaram-palavras-de-ordem/">Protesto pelo clima interroumpeu debate. Dois a cinco ativistas atiraram tinta e gritaram palavras de ordem</a>
+						</h3>
+					</article>
+					<article>
+						<figure>
+							<a href="https://www.tsf.pt/547929966/protesto-pelo-clima-interrompeu-debate-dois-a-cinco-ativistas-atiraram-tinta-e-gritaram-palavras-de-ordem/">
+								<img src="https://asset.skoiy.com/tsfiqogiwkcugyug/flimyeqyuyzz.jpg?w=150&q=90&crop=5311,2987,0,277" alt="">
+							</a>
+						</figure>
+						<h3>
+							<a href="https://www.tsf.pt/547929966/protesto-pelo-clima-interrompeu-debate-dois-a-cinco-ativistas-atiraram-tinta-e-gritaram-palavras-de-ordem/">Protesto pelo clima interroumpeu debate. Dois a cinco ativistas atiraram tinta e gritaram palavras de ordem</a>
+						</h3>
+					</article>
+					<article>
+						<figure>
+							<a href="https://www.tsf.pt/547929966/protesto-pelo-clima-interrompeu-debate-dois-a-cinco-ativistas-atiraram-tinta-e-gritaram-palavras-de-ordem/">
+								<img src="https://asset.skoiy.com/tsfiqogiwkcugyug/flimyeqyuyzz.jpg?w=150&q=90&crop=5311,2987,0,277" alt="">
+							</a>
+						</figure>
+						<h3>
+							<a href="https://www.tsf.pt/547929966/protesto-pelo-clima-interrompeu-debate-dois-a-cinco-ativistas-atiraram-tinta-e-gritaram-palavras-de-ordem/">Protesto pelo clima interroumpeu debate. Dois a cinco ativistas atiraram tinta e gritaram palavras de ordem</a>
+						</h3>
+					</article>
+					<article>
+						<figure>
+							<a href="https://www.tsf.pt/547929966/protesto-pelo-clima-interrompeu-debate-dois-a-cinco-ativistas-atiraram-tinta-e-gritaram-palavras-de-ordem/">
+								<img src="https://asset.skoiy.com/tsfiqogiwkcugyug/flimyeqyuyzz.jpg?w=150&q=90&crop=5311,2987,0,277" alt="">
+							</a>
+						</figure>
+						<h3>
+							<a href="https://www.tsf.pt/547929966/protesto-pelo-clima-interrompeu-debate-dois-a-cinco-ativistas-atiraram-tinta-e-gritaram-palavras-de-ordem/">Protesto pelo clima interroumpeu debate. Dois a cinco ativistas atiraram tinta e gritaram palavras de ordem</a>
+						</h3>
+					</article>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

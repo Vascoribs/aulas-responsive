@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <title>Layouts Responsive Grid</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            #wrapper {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: 2fr 1fr;
+                grid-gap: 10px;
+                grid-column-gap: 50px;
+            }
+
+            #wrapper div {
+                outline: 1px solid red;
+            }
+
+            #wrapper2 {
+                margin-top: 20px;
+                display: grid;
+                grid-template-columns: 3fr 1fr 1fr minmax (20px, max-content);
+                grid-column-gap: 5px;
+            }
+
+            #wrapper2 div {
+                outline: 1px solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+        </div>
+        <div id="wrapper2">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+    </body>
+</html>
